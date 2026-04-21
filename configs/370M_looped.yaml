@@ -1,0 +1,41 @@
+model:
+  config_name: "370M"
+  config_type: "B"
+  max_seq_len: 2048
+  vocab_size: 32768
+  mu_rec: 8
+  mu_bwd: 4
+  head_dim: 128
+  prelude_norm: true
+
+training:
+  adamw_lr: 8.0e-3
+  muon_lr: 8.0e-3
+  adamw_beta1: 0.8
+  adamw_beta2: 0.95
+  adamw_eps: 1.0e-10
+  adamw_weight_decay: 0.0
+  muon_momentum: 0.95
+  muon_weight_decay_start: 0.2
+  muon_weight_decay_end: 0.0
+  muon_n_polar_iters: 5
+  grad_clip: 1.0
+  cooldown_start_frac: 0.5
+  total_tokens: 29_600_000_000
+  global_batch_size: 256
+  micro_batch_size: 32
+  seq_len: 2048
+  bf16: true
+
+data:
+  tokenizer_path: "tokenizer_config_b.json"
+  train_path: null
+  val_path: null
+  packing: "bestfit_crop"
+
+evaluation:
+  val_every: 2000
+  eval_tasks: ["hellaswag_0shot", "hellaswag_10shot", "lambada", "arc_c", "arc_e", "piqa", "boolq", "copa", "winogrande"]
+  core_tasks: true
+  core_ext_tasks: true
+  test_time_sweep: false

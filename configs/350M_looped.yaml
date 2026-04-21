@@ -1,0 +1,35 @@
+model:
+  config_name: "350M"
+  config_type: "A"
+  max_seq_len: 2048
+  vocab_size: 65536
+  mu_rec: 16
+  mu_bwd: 8
+  prelude_norm: true
+
+training:
+  optimizer: "adamw"
+  adamw_lr: 2.0e-4
+  adamw_beta1: 0.9
+  adamw_beta2: 0.95
+  adamw_eps: 0.0
+  adamw_weight_decay: 0.1
+  grad_clip: 1.0
+  warmup_steps: 4096
+  cooldown_frac: 0.1
+  total_tokens: 5_000_000_000
+  global_batch_size: 256
+  micro_batch_size: 32
+  seq_len: 2048
+  bf16: true
+
+data:
+  tokenizer_path: "tokenizer_config_a.json"
+  train_path: null
+  val_path: null
+  packing: "standard"
+
+evaluation:
+  val_every: 1000
+  eval_tasks: ["hellaswag_0shot", "arc_c", "arc_e", "piqa", "boolq", "sciq"]
+  test_time_sweep: false

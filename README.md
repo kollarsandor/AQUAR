@@ -1,5 +1,4 @@
-markdown
- Hurkolt Transzformer Nyelvi Modell
+Hurkolt Transzformer Nyelvi Modell
 
 Egy gyártásra kész implementáció hurkolt (rekurrens) transzformer nyelvi modellekhez korlátozott spektrális injektálással, konfigurálható rekurrencia mélység mintavételezéssel, valamint átfogó kísérleti suite-okkal a stabilitás elemzéséhez, minőségi benchmarkokhoz és skálázási törvény validációhoz.
 
